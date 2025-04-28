@@ -31,6 +31,21 @@ namespace WindowsFormsApp2
                 picProfile.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
+
+        public void showStatus()
+        {
+
+        }
+        public void trial()
+        {
+            Workbook book = new Workbook();
+            book.LoadFromFile(@"C:\Users\User\OneDrive\Desktop\Book1.xlsx");
+            //book.LoadFromFile(@"C:\Users\ACT-STUDENT\Desktop\Book1.xlsx");
+            Worksheet sheet = book.Worksheets[0];
+            DataTable dt = sheet.ExportDataTable();
+            Form2 form2 = new Form2();
+            form2.dgvData.DataSource = dt;
+        }
         private void btnInsert_Click(object sender, EventArgs e)
         {
             Workbook book = new Workbook();
